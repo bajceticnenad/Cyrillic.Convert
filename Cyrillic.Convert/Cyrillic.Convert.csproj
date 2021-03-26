@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Nenad Bajčetić</Authors>
+    <Company>DotNET Code Čačak</Company>
+    <Description>Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic. 
+Supported languages: Serbian, Russian, Bulgarian.
+Convert with forwarded string or as extension method.</Description>
+    <Copyright>DotNET Code Čačak</Copyright>
+    <RepositoryUrl>https://dev.azure.com/nenadbajcetic/Cyrillic.Convert</RepositoryUrl>
+    <PackageReleaseNotes>v2.1.1
+Add conversion for Bulgarian language. 
+v2.1.0
+Add conversion for Russian language.
+v2.0.3
+Add conversion for Russian language.
+v2.0.2
+Added Relases notes for all versions.
+Refactoring...
+v2.0.1
+Added Tags, Description...
+v2.0.0
+Added convert with extension method (ToSerbianLatin, ToSerbianCyrilic).
+v1.0.0
+Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic.
+Convert with forwarded string.
+
+If you have any questions, comments, or run into any problems, don't hesitate to send me an e-mail at
+nenadbajcetic@hotmail.com</PackageReleaseNotes>
+    <PackageProjectUrl>https://dev.azure.com/nenadbajcetic/Cyrillic.Convert</PackageProjectUrl>
+    <AssemblyVersion>2.1.1.0</AssemblyVersion>
+    <FileVersion>2.1.1.0</FileVersion>
+    <Version>2.1.1</Version>
+    <PackageTags>Convert, Cyrillic, Preslovljavanje, CyrillicToLatin, LatinToCyrillic, ToCyrillic,Serbian, Russian, Bulgarian</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+1. kreirati DLL
+1.1 Project-->Properties: uneti osnovne podatke za Nuget
+2. Uraditi Clean
+3. Desni klik na projekat --> pack
+4. Na Nuget.org: user-->API Keys-->Create
+5. Uneti osnovne podatke za Nuget
+6. Otici na lokaciju projekta: bin/relase/ i pokrenuti "cmd"
+7. Ukucati komandu: nuget push Cyrillic.Convert.1.0.0.nupkg -k keys_kreiranog_nugeta -s https://api.nuget.org/v3/index.json
+8. Nuget je prebačen na nuget.org i može se odmah instalirati kroz ppackage Manager Console ili sačekati malo pa preko Nuget Manager
