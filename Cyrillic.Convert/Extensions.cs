@@ -36,7 +36,6 @@ namespace Cyrillic.Convert
             }
 
             return rec;
-
         }
         #endregion "Srpski"
 
