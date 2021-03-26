@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cyrillic.Convert.Enums
 {
-    class Languages
+    public enum Languages
     {
     }
 }
