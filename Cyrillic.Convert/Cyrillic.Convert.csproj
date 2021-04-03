@@ -35,6 +35,7 @@ nenadbajcetic@hotmail.com</PackageReleaseNotes>
     <FileVersion>2.1.2.0</FileVersion>
     <Version>2.1.2</Version>
     <PackageTags>Convert, Cyrillic, Preslovljavanje, CyrillicToLatin, LatinToCyrillic, ToCyrillic,Serbian, Russian, Bulgarian</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
