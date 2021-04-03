@@ -15,3 +15,7 @@ var cyrillic = conversion.SerbianLatinToCyrillic(latin); //Convert with forwarde
 var latinConvert = cyrillic.ToSerbianLatin();
 var latinExtension = cyrillic.ToSerbianLatin();
 ```
+
+## Installation
+
+` Install-Package Cyrillic.Convert `
