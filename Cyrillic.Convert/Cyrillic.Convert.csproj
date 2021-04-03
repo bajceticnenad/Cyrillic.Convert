@@ -33,7 +33,7 @@ nenadbajcetic@hotmail.com</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/bajceticnenad/Cyrillic.Convert</PackageProjectUrl>
     <AssemblyVersion>2.1.2.0</AssemblyVersion>
     <FileVersion>2.1.2.0</FileVersion>
-    <Version>2.1.1</Version>
+    <Version>2.1.2</Version>
     <PackageTags>Convert, Cyrillic, Preslovljavanje, CyrillicToLatin, LatinToCyrillic, ToCyrillic,Serbian, Russian, Bulgarian</PackageTags>
   </PropertyGroup>
 
