@@ -1,1 +1,1 @@
-dotnet nuget push Cyrillic.Convert.2.0.3.nupkg -k oy2f7qdxwnhdzzrr45oqrb67etwqrqhu3gitkaty2t4wdq -s https://api.nuget.org/v3/index.json
+dotnet nuget push Cyrillic.Convert.2.0.3.nupkg -k keys_kreiranog_nugeta -s https://api.nuget.org/v3/index.json

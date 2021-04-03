@@ -9,7 +9,9 @@ Supported languages: Serbian, Russian, Bulgarian.
 Convert with forwarded string or as extension method.</Description>
     <Copyright>DotNET Code Čačak</Copyright>
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
-    <PackageReleaseNotes>v2.1.1
+    <PackageReleaseNotes>v2.1.2
+Add GitHub repository
+v2.1.1
 Add conversion for Bulgarian language. 
 v2.1.0
 Add conversion for Russian language.
@@ -28,11 +30,12 @@ Convert with forwarded string.
 
 If you have any questions, comments, or run into any problems, don't hesitate to send me an e-mail at
 nenadbajcetic@hotmail.com</PackageReleaseNotes>
-    <PackageProjectUrl></PackageProjectUrl>
-    <AssemblyVersion>2.1.1.0</AssemblyVersion>
-    <FileVersion>2.1.1.0</FileVersion>
-    <Version>2.1.1</Version>
+    <PackageProjectUrl>https://github.com/bajceticnenad/Cyrillic.Convert</PackageProjectUrl>
+    <AssemblyVersion>2.1.2.0</AssemblyVersion>
+    <FileVersion>2.1.2.0</FileVersion>
+    <Version>2.1.2</Version>
     <PackageTags>Convert, Cyrillic, Preslovljavanje, CyrillicToLatin, LatinToCyrillic, ToCyrillic,Serbian, Russian, Bulgarian</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
