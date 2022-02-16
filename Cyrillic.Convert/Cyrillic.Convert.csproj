@@ -5,7 +5,7 @@
     <Authors>Nenad Bajčetić</Authors>
     <Company>DotNET Code Čačak</Company>
     <Description>Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic. 
-Supported languages: Serbian, Russian, Bulgarian.
+Supported languages: Serbian, Russian, Bulgarian, Ukrainian.
 Convert with forwarded string or as extension method.</Description>
     <Copyright>DotNET Code Čačak</Copyright>
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
