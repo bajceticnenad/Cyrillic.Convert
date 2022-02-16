@@ -99,5 +99,20 @@ namespace Cyrillic.Convert
         }
         #endregion "Bugarski"
 
+        #region "Ukrainian"
+
+        public static string ToUkrainianLatin(this string rec)
+        {
+            var conversion = new Conversion();
+            return conversion.UkrainianCyrillicToLatin(rec);
+        }
+
+        public static string ToUkrainianCyrillic(this string rec)
+        {
+            var conversion = new Conversion();
+            return conversion.UkrainianLatinToCyrillic(rec);
+        }
+
+        #endregion
     }
 }
