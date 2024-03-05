@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Cyrillic.Convert.Dictionaries
+namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Ukrainian
+    public class Ukrainian : ConversionDictionaries
     {
-        private readonly Dictionary<char, string> ukr_to_latin_dictionary;
-        private readonly Dictionary<char, string> ukr_start_dictionary;
-        private readonly Dictionary<string, string> ukr_special_cases;
+        private readonly Dictionary<char, string> cyrillicToLatinDictionary;
+        private readonly Dictionary<char, string> cyrillicStartDictionary;
+        private readonly Dictionary<string, string> cyrillicSpecialCases;
 
-        private readonly Dictionary<string, string> latin_to_ukr_dictionary;
-        private readonly Dictionary<string, string> latin_to_ukr_start_dictionary;
+        private readonly Dictionary<string, string> latinToCyrillicDictionary;
+        private readonly Dictionary<string, string> latinToCyrillicStartDictionary;
 
         public Ukrainian()
         {
-            ukr_start_dictionary = new Dictionary<char, string>()
+            cyrillicStartDictionary = new Dictionary<char, string>()
             {
                 { 'є', "ye" },
                 { 'ї' , "yi" },
@@ -30,7 +28,7 @@ namespace Cyrillic.Convert.Dictionaries
                 { 'Я' , "Ya" },
             };
 
-            latin_to_ukr_start_dictionary = new Dictionary<string, string>()
+            latinToCyrillicStartDictionary = new Dictionary<string, string>()
             {
                 { "ye", "є" },
                 { "yi", "ї" },
@@ -53,7 +51,7 @@ namespace Cyrillic.Convert.Dictionaries
             };
 
 
-            ukr_special_cases = new Dictionary<string, string>()
+            cyrillicSpecialCases = new Dictionary<string, string>()
             {
                 { "зг", "zgh" },
                 { "Зг", "Zgh" },
@@ -61,7 +59,7 @@ namespace Cyrillic.Convert.Dictionaries
                 { "зГ", "zGH" }
             };
 
-            ukr_to_latin_dictionary = new Dictionary<char, string>
+            cyrillicToLatinDictionary = new Dictionary<char, string>
             {
                 { 'а', "a" },
                 { 'б', "b" },
@@ -133,7 +131,7 @@ namespace Cyrillic.Convert.Dictionaries
                 { '\'',"" }
             };
 
-            latin_to_ukr_dictionary = new Dictionary<string, string>
+            latinToCyrillicDictionary = new Dictionary<string, string>
             {
                 { "shch", "щ" },
                 { "ie", "є" },
@@ -213,28 +211,28 @@ namespace Cyrillic.Convert.Dictionaries
         }
 
 
-        public Dictionary<char, string> getDictionary()
+        public override Dictionary<char, string> GetToLatinDictionary()
         {
-            return this.ukr_to_latin_dictionary;
+            return cyrillicToLatinDictionary;
         }
-        public Dictionary<char, string> getStartDictionary()
+        public override Dictionary<char, string> GetStartDictionary()
         {
-            return this.ukr_start_dictionary;
-        }
-
-        public Dictionary<string, string> getStartToUkrDictionary()
-        {
-            return this.latin_to_ukr_start_dictionary;
+            return cyrillicStartDictionary;
         }
 
-        public Dictionary<string, string> getToUkrDictionary()
+        public override Dictionary<string, string> GetStartToCyrillicDictionary()
         {
-            return this.latin_to_ukr_dictionary;
+            return latinToCyrillicStartDictionary;
         }
 
-        public Dictionary<string, string> getSpecialDictionary()
+        public override Dictionary<string, string> GetToCyrillicDictionary()
         {
-            return this.ukr_special_cases;
+            return latinToCyrillicDictionary;
+        }
+
+        public override Dictionary<string, string> GetSpecialDictionary()
+        {
+            return cyrillicSpecialCases;
         }
     }
 }

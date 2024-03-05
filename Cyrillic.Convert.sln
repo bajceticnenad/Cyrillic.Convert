@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29201.188
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrillic.Convert", "Cyrillic.Convert\Cyrillic.Convert.csproj", "{FFCB7E9D-9E27-4013-8275-338ADBEFB281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrillic.Convert", "Cyrillic.Convert\Cyrillic.Convert.csproj", "{FFCB7E9D-9E27-4013-8275-338ADBEFB281}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4A3A7DC5-2CDD-4999-94B7-E92937A855AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrillic.Convert.UnitTests", "Cyrillic.Convert.UnitTests\Cyrillic.Convert.UnitTests.csproj", "{B8CE67DF-C496-4251-98D0-69507AD1261F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{FFCB7E9D-9E27-4013-8275-338ADBEFB281}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFCB7E9D-9E27-4013-8275-338ADBEFB281}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFCB7E9D-9E27-4013-8275-338ADBEFB281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8CE67DF-C496-4251-98D0-69507AD1261F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8CE67DF-C496-4251-98D0-69507AD1261F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8CE67DF-C496-4251-98D0-69507AD1261F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8CE67DF-C496-4251-98D0-69507AD1261F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8CE67DF-C496-4251-98D0-69507AD1261F} = {4A3A7DC5-2CDD-4999-94B7-E92937A855AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA3B9599-0229-42ED-9E02-5EDE6D692BD9}
