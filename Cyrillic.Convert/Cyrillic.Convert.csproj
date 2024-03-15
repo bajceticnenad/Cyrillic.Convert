@@ -7,9 +7,13 @@
     <Description>Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic. 
 Supported languages: Serbian, Russian, Bulgarian, Ukrainian.
 Convert with forwarded string or as extension method.</Description>
-    <Copyright>DotNET Code Čačak</Copyright>
+    <Copyright>Nenad Bajčetić</Copyright>
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
-    <PackageReleaseNotes>v2.2.1
+    <PackageReleaseNotes>v3.0
+BugFix for Russian Language. 
+Add Factory pattern;
+Add XUnit Tests;
+v2.2.1
 Add MIT Licence
 v2.2.0
 Add conversion for Ukrainian language. 
@@ -35,9 +39,9 @@ Convert with forwarded string.
 If you have any questions, comments, or run into any problems, don't hesitate to send me an e-mail at
 nenadbajcetic@hotmail.com</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/bajceticnenad/Cyrillic.Convert</PackageProjectUrl>
-    <AssemblyVersion>2.2.0.0</AssemblyVersion>
-    <FileVersion>2.2.0.0</FileVersion>
-    <Version>2.2.1</Version>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0</Version>
     <PackageTags>Convert, Cyrillic, Preslovljavanje, Translit, CyrillicToLatin, LatinToCyrillic, ToCyrillic, Serbian, Russian, Bulgarian, Ukrainian</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
