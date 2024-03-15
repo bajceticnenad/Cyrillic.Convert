@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrillic.Convert", "Cyrilli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4A3A7DC5-2CDD-4999-94B7-E92937A855AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrillic.Convert.UnitTests", "Cyrillic.Convert.UnitTests\Cyrillic.Convert.UnitTests.csproj", "{B8CE67DF-C496-4251-98D0-69507AD1261F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrillic.Convert.UnitTests", "Cyrillic.Convert.UnitTests\Cyrillic.Convert.UnitTests.csproj", "{B8CE67DF-C496-4251-98D0-69507AD1261F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,8 +15,8 @@ namespace Cyrillic.Convert
             {
                 case Language.Serbian:
                     return new SerbianConversionFactory().GetConversionDictionaries();
-                //case Language.Russian:
-                //    return new RussianConversionFactory().GetConversionDictionaries();
+                case Language.Russian:
+                    return new RussianConversionFactory().GetConversionDictionaries();
                 case Language.Ukrainian:
                     return new UkrainianConversionFactory().GetConversionDictionaries();
                 //case Language.Bulgarian:
@@ -109,6 +109,7 @@ namespace Cyrillic.Convert
 
                     foreach (var pr in start_dict)
                     {
+                        if (pr.Key.Length > text.Length - i) continue;
                         if (text.IndexOf(pr.Key, i, pr.Key.Length) != i) continue;
                         text = text.Substring(0, i) + pr.Value + text.Substring(i + pr.Key.Length);
                         break;

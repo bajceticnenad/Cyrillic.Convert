@@ -4,11 +4,15 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
 {
     public class Serbian : ConversionDictionaries
     {
-        Dictionary<string, string> serbianLatinToCyrillicDictionary;
-        Dictionary<char, string> serbianCyrillicToLatinDictionary;
-        public void SerbianLatinToCyrillicDictionary()
+        private readonly Dictionary<char, string> cyrillicToLatinDictionary;
+        private readonly Dictionary<char, string> cyrillicStartDictionary;
+        private readonly Dictionary<string, string> cyrillicSpecialCases;
+
+        private readonly Dictionary<string, string> latinToCyrillicDictionary;
+        private readonly Dictionary<string, string> latinToCyrillicStartDictionary;
+        public Serbian()
         {
-            serbianLatinToCyrillicDictionary = new Dictionary<string, string>
+            latinToCyrillicDictionary = new Dictionary<string, string>
             {
                 { "Lj", "Љ" },
                 { "Nj", "Њ" },
@@ -44,11 +48,8 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { "č", "ч" },
                 { "š", "ш" }
             };
-        }
 
-        public void SerbianCyrillicToLatinDictionary()
-        {
-            serbianCyrillicToLatinDictionary = new Dictionary<char, string>
+            cyrillicToLatinDictionary = new Dictionary<char, string>
             {
                 { 'Љ', "Lj" },
                 { 'Њ', "Nj" },
@@ -84,33 +85,54 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'ч', "č" },
                 { 'ш', "š" }
             };
+
+            cyrillicStartDictionary = new Dictionary<char, string>()
+            {
+                { 'Љ', "Lj" },
+                { 'Њ', "Nj" },
+                { 'Џ', "Dž" },
+                { 'љ', "lj" },
+                { 'њ', "nj" },
+                { 'џ', "dž" },
+            };
+
+            latinToCyrillicStartDictionary = new Dictionary<string, string>()
+            {
+            };
+
+            cyrillicSpecialCases = new Dictionary<string, string>()
+            {
+            };
         }
 
+        //CyrillicToLatin
         public override Dictionary<char, string> GetToLatinDictionary()
         {
-            SerbianCyrillicToLatinDictionary();
-            return serbianCyrillicToLatinDictionary;
+            return cyrillicToLatinDictionary;
         }
 
+        //CyrillicToLatin & LatinToCyrillic
         public override Dictionary<char, string> GetStartDictionary()
         {
-            return new Dictionary<char, string>();
+            return cyrillicStartDictionary;
         }
 
+        //LatinToCyrillic
         public override Dictionary<string, string> GetStartToCyrillicDictionary()
         {
-            return new Dictionary<string, string>();
+            return latinToCyrillicStartDictionary;
         }
 
+        //LatinToCyrillic
         public override Dictionary<string, string> GetToCyrillicDictionary()
         {
-            SerbianLatinToCyrillicDictionary();
-            return serbianLatinToCyrillicDictionary;
+            return latinToCyrillicDictionary;
         }
 
+        //CyrillicToLatin & LatinToCyrillic
         public override Dictionary<string, string> GetSpecialDictionary()
         {
-            return new Dictionary<string, string>();
+            return cyrillicSpecialCases;
         }
     }
 }
