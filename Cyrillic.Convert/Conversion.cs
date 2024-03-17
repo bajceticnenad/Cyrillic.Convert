@@ -19,8 +19,8 @@ namespace Cyrillic.Convert
                     return new RussianConversionFactory().GetConversionDictionaries();
                 case Language.Ukrainian:
                     return new UkrainianConversionFactory().GetConversionDictionaries();
-                //case Language.Bulgarian:
-                //    return new BulgarianConversionFactory().GetConversionDictionaries();
+                case Language.Bulgarian:
+                    return new BulgarianConversionFactory().GetConversionDictionaries();
                 default:
                     return null;
             }
@@ -46,22 +46,22 @@ namespace Cyrillic.Convert
 
             var c = text[0];
             bool empty_prev = false;
-            if (start_dict.TryGetValue(c, out string start_str))
-            {
-                builder.Append(start_str);
-            }
-            else
-            {
-                builder.Append(c);
-                empty_prev = is_empty(c);
-            }
+            //if (start_dict.TryGetValue(c, out string start_str))
+            //{
+            //    builder.Append(start_str);
+            //}
+            //else
+            //{
+            //    builder.Append(c);
+            //    empty_prev = is_empty(c);
+            //}
 
 
             var dict = letters.GetToLatinDictionary();
 
             int length = text.Length;
 
-            for (int i = 1; i < length; ++i)
+            for (int i = 0; i < length; ++i)
             {
                 c = text[i];
                 if (empty_prev && start_dict.TryGetValue(c, out string start_tmp_str))

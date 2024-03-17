@@ -31,7 +31,9 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'ш', "sh" },
                 { 'щ', "shch" },
                 { 'ю', "ju" },
-                { 'я', "Ja" },
+                { 'я', "ja" },
+                { 'а', "a" },
+                { 'А', "A" },
             };
 
             latinToCyrillicStartDictionary = new Dictionary<string, string>()
@@ -88,7 +90,7 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'Ъ', "" },
                 { 'Ь', "" },
                 { 'Э', "E" },
-                { 'a', "a" },
+                { 'а', "a" },
                 { 'б', "b" },
                 { 'в', "v" },
                 { 'г', "g" },
@@ -175,7 +177,7 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { "H", "Х" },
                 //{ "C", "Ц" },
                 //{ "E", "Э" },
-                { "a", "a" },
+                { "a", "а" },
                 { "b", "б" },
                 { "v", "в" },
                 { "g", "г" },

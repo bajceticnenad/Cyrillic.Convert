@@ -11,6 +11,7 @@ Convert with forwarded string or as extension method.</Description>
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
     <PackageReleaseNotes>v3.0
 BugFix for Russian Language. 
+BugFix for Bulgarian Language.
 Add Factory pattern;
 Add XUnit Tests;
 v2.2.1
