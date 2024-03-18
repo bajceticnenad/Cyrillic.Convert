@@ -11,5 +11,8 @@
         public static string BulgarianCyrillicLetters = "а,б,в,г,д,е,ж,з,и,й,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ы,ю,я,ъ,А,Б,В,Г,Д,Е,Ж,З,И,Й,К,Л,М,Н,О,П,Р,С,Т,У,Ф,Х,Ц,Ч,Ш,Щ,Ы,Ю,Я,Ъ"; //special case Э => E, э => e, ъ => '', ь => '', Ъ => '', Ь => ''
         public static string BulgarianLatinLetters = "a,b,v,g,d,e,zh,z,i,j,k,l,m,n,o,p,r,s,t,u,f,kh,ts,ch,sh,sht,y,yu,ya,ǎ,A,B,V,G,D,E,Zh,Z,I,J,K,L,M,N,O,P,R,S,T,U,F,Kh,Ts,Ch,Sh,Sht,Y,Yu,Ya,Ǎ"; //special case sch => щ, shch => щ
 
+        public static string UkrainianCyrillicLetters = "а,б,в,г,ґ,д,е,є,ж,з,и,і,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ю,я,А,Б,В,Г,Ґ,Д,Е,Є,Ж,З,И,І,К,Л,М,Н,О,П,Р,С,Т,У,Ф,Х,Ц,Ч,Ш,Щ,Ю,Я,зг,Зг,ЗГ,зГ"; //special case: ї,й,Ї,Й,ь
+        public static string UkrainianLatinLetters = "a,b,v,h,g,d,e,ie,zh,z,y,i,k,l,m,n,o,p,r,s,t,u,f,kh,ts,ch,sh,shch,iu,ia,A,B,V,H,G,D,E,IE,Zh,Z,Y,I,K,L,M,N,O,P,R,S,T,U,F,Kh,Ts,Ch,Sh,Shch,IU,IA,zgh,Zgh,ZGH,zGH"; //special case: \,Zh,Ts,Ch,Sh,Ie,Iu,Ia , KH,TS,CH,SH,SHCH,
+
     }
 }

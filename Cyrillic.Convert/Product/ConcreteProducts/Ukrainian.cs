@@ -61,6 +61,25 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
 
             cyrillicToLatinDictionary = new Dictionary<char, string>
             {
+                { 'щ', "shch" },
+                { 'х', "kh" },
+                { 'ц', "ts" },
+                { 'ч', "ch" },
+                { 'ш', "sh" },
+                { 'ю', "iu" },
+                { 'я', "ia" },
+                { 'є', "ie" },
+                { 'ж', "zh" },
+                { 'Є', "IE" },
+                { 'Ж', "Zh" },
+                { 'Х', "Kh" },
+                { 'Ц', "Ts" },
+                { 'Ч', "Ch" },
+                { 'Ш', "Sh" },
+                { 'Щ', "Shch" },
+                { 'Ю', "IU" },
+                { 'Я', "IA" },
+
                 { 'а', "a" },
                 { 'б', "b" },
                 { 'в', "v" },
@@ -68,8 +87,6 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'ґ', "g" },
                 { 'д', "d" },
                 { 'е', "e" },
-                { 'є', "ie" },
-                { 'ж', "zh" },
                 { 'з', "z" },
                 { 'и', "y" },
                 { 'і', "i" },
@@ -86,13 +103,6 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'т', "t" },
                 { 'у', "u" },
                 { 'ф', "f" },
-                { 'х', "kh" },
-                { 'ц', "ts" },
-                { 'ч', "ch" },
-                { 'ш', "sh" },
-                { 'щ', "shch" },
-                { 'ю', "iu" },
-                { 'я', "ia" },
 
                 { 'А', "A" },
                 { 'Б', "B" },
@@ -101,8 +111,6 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'Ґ', "G" },
                 { 'Д', "D" },
                 { 'Е', "E" },
-                { 'Є', "IE" },
-                { 'Ж', "Zh" },
                 { 'З', "Z" },
                 { 'И', "Y" },
                 { 'І', "I" },
@@ -119,13 +127,6 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { 'Т', "T" },
                 { 'У', "U" },
                 { 'Ф', "F" },
-                { 'Х', "Kh" },
-                { 'Ц', "Ts" },
-                { 'Ч', "Ch" },
-                { 'Ш', "Sh" },
-                { 'Щ', "Shch" },
-                { 'Ю', "IU" },
-                { 'Я', "IA" },
 
                 { 'ь', "" },
                 { '\'',"" }
@@ -133,6 +134,8 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
 
             latinToCyrillicDictionary = new Dictionary<string, string>
             {
+                { "Shch" , "Щ" },
+                { "SHCH" , "Щ" },
                 { "shch", "щ" },
                 { "ie", "є" },
                 { "zh", "ж" },
@@ -143,8 +146,6 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { "iu", "ю" },
                 { "ia", "я" },
 
-                { "Shch" , "Щ" },
-                { "SHCH" , "Щ" },
                 { "IE", "Є" },
                 { "ZH", "Ж" },
                 { "Zh", "Ж" },
@@ -181,8 +182,6 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { "t", "т" },
                 { "u", "у" },
                 { "f", "ф" },
-
-
 
                 { "A", "А" },
                 { "B", "Б" },
