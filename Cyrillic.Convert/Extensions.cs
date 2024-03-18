@@ -1,116 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cyrillic.Convert.Dictionaries;
-
-namespace Cyrillic.Convert
+﻿namespace Cyrillic.Convert
 {
     public static class Extensions
     {
-        #region "Srpski"
-        public static string ToSerbianCyrilic(this string rec)
+        #region "Serbian"
+        public static string ToSerbianCyrilic(this string text)
         {
-            //Dictionary<string, string> slova = new Srpski.getDictionary();
-            Srpski slova = new Srpski();
-
-            foreach (KeyValuePair<string, string> pair in slova.getDictionary())
-            {
-                rec = rec.Replace(pair.Value, pair.Key);
-                // For upper case
-                rec = rec.Replace(pair.Value.ToUpper(), pair.Key.ToUpper());
-            }
-
-            return rec;
+            var conversion = new Conversion();
+            return conversion.SerbianLatinToCyrillic(text);
         }
 
-        public static string ToSerbianLatin(this string rec)
+        public static string ToSerbianLatin(this string text)
         {
-            //Dictionary<string, string> slova = new Dictionary<string, string>();
-            Srpski slova = new Srpski();
-
-            foreach (KeyValuePair<string, string> pair in slova.getDictionary())
-            {
-                rec = rec.Replace(pair.Key, pair.Value);
-                // For upper case
-                rec = rec.Replace(pair.Key.ToUpper(), pair.Value.ToUpper());
-            }
-
-            return rec;
+            var conversion = new Conversion();
+            return conversion.SerbianCyrillicToLatin(text);
         }
-        #endregion "Srpski"
+        #endregion "Serbian"
 
-        #region "Ruski"
-        public static string ToRussianLatin(this string rec)
+        #region "Russian"
+        public static string ToRussianLatin(this string text)
         {
-            Ruski slova = new Ruski();
-
-            foreach (KeyValuePair<string, string> pair in slova.getDictionary())
-            {
-                rec = rec.Replace(pair.Key, pair.Value);
-                // For upper case
-                rec = rec.Replace(pair.Key.ToUpper(), pair.Value.ToUpper());
-            }
-
-            return rec;
+            var conversion = new Conversion();
+            return conversion.RussianCyrillicToLatin(text);
         }
 
-        public static string ToRussianCyrilic(this string rec)
+        public static string ToRussianCyrilic(this string text)
         {
-            Ruski slova = new Ruski();
-
-            foreach (KeyValuePair<string, string> pair in slova.getDictionary())
-            {
-                rec = rec.Replace(pair.Value, pair.Key);
-                // For upper case
-                rec = rec.Replace(pair.Value.ToUpper(), pair.Key.ToUpper());
-            }
-
-            return rec;
+            var conversion = new Conversion();
+            return conversion.RussianLatinToCyrillic(text);
         }
-        #endregion "Ruski"
+        #endregion "Russian"
 
-        #region "Bugarski"
-        public static string ToBulgarianLatin(this string rec)
+        #region "Bulgarian"
+        public static string ToBulgarianLatin(this string text)
         {
-            Bugarski slova = new Bugarski();
-
-            foreach (KeyValuePair<string, string> pair in slova.getDictionary())
-            {
-                rec = rec.Replace(pair.Key, pair.Value);
-                // For upper case
-                rec = rec.Replace(pair.Key.ToUpper(), pair.Value.ToUpper());
-            }
-
-            return rec;
+            var conversion = new Conversion();
+            return conversion.BulgarianCyrillicToLatin(text);
         }
 
-        public static string ToBulgarianCyrilic(this string rec)
+        public static string ToBulgarianCyrilic(this string text)
         {
-            Bugarski slova = new Bugarski();
-
-            foreach (KeyValuePair<string, string> pair in slova.getDictionary())
-            {
-                rec = rec.Replace(pair.Value, pair.Key);
-                // For upper case
-                rec = rec.Replace(pair.Value.ToUpper(), pair.Key.ToUpper());
-            }
-
-            return rec;
+            var conversion = new Conversion();
+            return conversion.BulgarianLatinToCyrillic(text);
         }
-        #endregion "Bugarski"
+        #endregion "Bulgarian"
 
         #region "Ukrainian"
 
-        public static string ToUkrainianLatin(this string rec)
+        public static string ToUkrainianLatin(this string text)
         {
             var conversion = new Conversion();
-            return conversion.UkrainianCyrillicToLatin(rec);
+            return conversion.UkrainianCyrillicToLatin(text);
         }
 
-        public static string ToUkrainianCyrillic(this string rec)
+        public static string ToUkrainianCyrillic(this string text)
         {
             var conversion = new Conversion();
-            return conversion.UkrainianLatinToCyrillic(rec);
+            return conversion.UkrainianLatinToCyrillic(text);
         }
 
         #endregion
