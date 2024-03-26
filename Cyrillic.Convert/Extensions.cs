@@ -2,7 +2,7 @@
 {
     public static class Extensions
     {
-        #region "Serbian"
+        #region Serbian
         public static string ToSerbianCyrilic(this string text)
         {
             var conversion = new Conversion();
@@ -14,9 +14,9 @@
             var conversion = new Conversion();
             return conversion.SerbianCyrillicToLatin(text);
         }
-        #endregion "Serbian"
+        #endregion Serbian
 
-        #region "Russian"
+        #region Russian
         public static string ToRussianLatin(this string text)
         {
             var conversion = new Conversion();
@@ -28,9 +28,9 @@
             var conversion = new Conversion();
             return conversion.RussianLatinToCyrillic(text);
         }
-        #endregion "Russian"
+        #endregion Russian
 
-        #region "Bulgarian"
+        #region Bulgarian
         public static string ToBulgarianLatin(this string text)
         {
             var conversion = new Conversion();
@@ -42,9 +42,9 @@
             var conversion = new Conversion();
             return conversion.BulgarianLatinToCyrillic(text);
         }
-        #endregion "Bulgarian"
+        #endregion Bulgarian
 
-        #region "Ukrainian"
+        #region Ukrainian
 
         public static string ToUkrainianLatin(this string text)
         {
@@ -59,5 +59,19 @@
         }
 
         #endregion
+
+        #region Georgian
+        public static string ToGeorgianCyrilic(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.GeorgianLatinToCyrillic(text);
+        }
+
+        public static string ToGeorgianLatin(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.GeorgianCyrillicToLatin(text);
+        }
+        #endregion Georgian
     }
 }

@@ -5,6 +5,7 @@
         Serbian,
         Russian,
         Ukrainian,
-        Bulgarian
+        Bulgarian,
+        Georgian
     }
 }

@@ -21,6 +21,8 @@ namespace Cyrillic.Convert
                     return new UkrainianConversionFactory().GetConversionDictionaries();
                 case Language.Bulgarian:
                     return new BulgarianConversionFactory().GetConversionDictionaries();
+                case Language.Georgian:
+                    return new GeorgianConversionFactory().GetConversionDictionaries();
                 default:
                     return null;
             }
@@ -196,5 +198,17 @@ namespace Cyrillic.Convert
         }
 
         #endregion
+
+        #region Georgian
+        public string GeorgianCyrillicToLatin(string text)
+        {
+            return ConvertCyrillicToLatin(Language.Georgian, text);
+        }
+
+        public string GeorgianLatinToCyrillic(string text)
+        {
+            return ConvertLatinToCyrillic(Language.Georgian, text);
+        }
+        #endregion Georgian
     }
 }
