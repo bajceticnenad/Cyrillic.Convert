@@ -6,6 +6,7 @@ Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic.
 - Conversion for Russian language.
 - Conversion for Bulgarian language.
 - Conversion for Ukrainian language.
+- Conversion for Georgian language.
 
 ## Example
 

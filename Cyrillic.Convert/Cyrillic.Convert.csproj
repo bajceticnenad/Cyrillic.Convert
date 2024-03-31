@@ -9,7 +9,10 @@ Supported languages: Serbian, Russian, Bulgarian, Ukrainian.
 Convert with forwarded string or as extension method.</Description>
     <Copyright>Nenad Bajčetić</Copyright>
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
-    <PackageReleaseNotes>v3.0
+    <PackageReleaseNotes>v3.1
+BugFix for Serbian Language.
+Add Georgian Language.
+v3.0
 BugFix for Russian Language. 
 BugFix for Bulgarian Language.
 Add Factory pattern;
@@ -40,10 +43,10 @@ Convert with forwarded string.
 If you have any questions, comments, or run into any problems, don't hesitate to send me an e-mail at
 nenadbajcetic@hotmail.com</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/bajceticnenad/Cyrillic.Convert</PackageProjectUrl>
-    <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <FileVersion>3.0.0.0</FileVersion>
-    <Version>3.0</Version>
-    <PackageTags>Convert, Cyrillic, Preslovljavanje, Translit, CyrillicToLatin, LatinToCyrillic, ToCyrillic, Serbian, Russian, Bulgarian, Ukrainian</PackageTags>
+    <AssemblyVersion>3.0.1.0</AssemblyVersion>
+    <FileVersion>3.0.1.0</FileVersion>
+    <Version>3.1</Version>
+    <PackageTags>Convert, Cyrillic, Preslovljavanje, Translit, CyrillicToLatin, LatinToCyrillic, ToCyrillic, Serbian, Russian, Bulgarian, Ukrainian, Georgian</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
