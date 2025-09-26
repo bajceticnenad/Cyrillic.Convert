@@ -73,5 +73,19 @@
             return conversion.GeorgianCyrillicToLatin(text);
         }
         #endregion Georgian
+
+        #region Greek
+        public static string ToGreekCyrilic(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.GreekLatinToCyrillic(text);
+        }
+
+        public static string ToGreekLatin(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.GreekCyrillicToLatin(text);
+        }
+        #endregion Greek
     }
 }

@@ -6,6 +6,7 @@
         Russian,
         Ukrainian,
         Bulgarian,
-        Georgian
+        Georgian,
+        Greek
     }
 }
