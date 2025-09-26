@@ -23,6 +23,8 @@ namespace Cyrillic.Convert
                     return new BulgarianConversionFactory().GetConversionDictionaries();
                 case Language.Georgian:
                     return new GeorgianConversionFactory().GetConversionDictionaries();
+                case Language.Greek:
+                    return new GreekConversionFactory().GetConversionDictionaries();
                 default:
                     return null;
             }
@@ -48,16 +50,6 @@ namespace Cyrillic.Convert
 
             var c = text[0];
             bool empty_prev = false;
-            //if (start_dict.TryGetValue(c, out string start_str))
-            //{
-            //    builder.Append(start_str);
-            //}
-            //else
-            //{
-            //    builder.Append(c);
-            //    empty_prev = is_empty(c);
-            //}
-
 
             var dict = letters.GetToLatinDictionary();
 
@@ -210,5 +202,17 @@ namespace Cyrillic.Convert
             return ConvertLatinToCyrillic(Language.Georgian, text);
         }
         #endregion Georgian
+
+        #region Greek
+        public string GreekCyrillicToLatin(string text)
+        {
+            return ConvertCyrillicToLatin(Language.Greek, text);
+        }
+
+        public string GreekLatinToCyrillic(string text)
+        {
+            return ConvertLatinToCyrillic(Language.Greek, text);
+        }
+        #endregion Greek
     }
 }
