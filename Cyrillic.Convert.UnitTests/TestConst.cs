@@ -16,5 +16,10 @@
 
         public static string GeorgianCyrillicLetters = "ჭ,Ჭ,თ,Თ,ჟ,Ჟ,ფ,Ფ,ღ,Ღ,ყ,Ყ,შ,Შ,ჩ,Ჩ,ც,Ც,ძ,Ძ,ხ,Ხ,ა,Ა,ბ,Ბ,გ,Გ,დ,Დ,ე,Ე,ვ,Ვ,ზ,Ზ,ი,Ი,კ,Კ,ლ,Ლ,მ,Მ,ნ,Ნ,ო,Ო,პ,Პ,რ,Რ,ს,Ს,ტ,Ტ,უ,Უ,ქ,Ქ,ჯ,Ჯ,ჰ,Ჰ"; // special case: წ => ts, Წ => Ts
         public static string GeorgianLatinLetters = "tch,Tch,th,Th,zh,Zh,ph,Ph,gh,Gh,qh,Qh,sh,Sh,ch,Ch,ts,Ts,dz,Dz,kh,Kh,a,A,b,B,g,G,d,D,e,E,v,V,z,Z,i,I,k,K,l,L,m,M,n,N,o,O,p,P,r,R,s,S,t,T,u,U,q,Q,j,J,h,H";
+
+        // Greek (note: ambiguous round-trip for Η/Ι). GreekLatinToGreekExpected differs from GreekCyrillicLetters.
+        public static string GreekCyrillicLetters = "Χ,χ,Ψ,ψ,Α,α,Β,β,Γ,γ,Δ,δ,Ε,ε,Ζ,ζ,Η,η,Θ,θ,Ι,ι,Κ,κ,Λ,λ,Μ,μ,Ν,ν,Ξ,ξ,Ο,ο,Π,π,Ρ,ρ,Σ,σ,ς,Τ,τ,Υ,υ,Φ,φ,Ω,ω";
+        public static string GreekLatinLetters = "Ch,ch,Ps,ps,A,a,V,v,G,g,D,d,E,e,Z,z,I,i,T,t,I,i,K,k,L,l,M,m,N,n,X,x,O,o,P,p,R,r,S,s,s,T,t,Y,y,F,f,O,o";
+        public static string GreekLatinToGreekExpected = "Χ,χ,Ψ,ψ,Α,α,Β,β,Γ,γ,Δ,δ,Ε,ε,Ζ,ζ,Ι,ι,Τ,τ,Ι,ι,Κ,κ,Λ,λ,Μ,μ,Ν,ν,Ξ,ξ,Ο,ο,Π,π,Ρ,ρ,Σ,σ,σ,Τ,τ,Υ,υ,Φ,φ,Ο,ο";
     }
 }
