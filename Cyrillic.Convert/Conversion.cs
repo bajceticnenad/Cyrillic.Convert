@@ -2,7 +2,9 @@
 using Cyrillic.Convert.Enums;
 using Cyrillic.Convert.Product;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace Cyrillic.Convert
 {
@@ -13,20 +15,14 @@ namespace Cyrillic.Convert
         {
             switch (language)
             {
-                case Language.Serbian:
-                    return new SerbianConversionFactory().GetConversionDictionaries();
-                case Language.Russian:
-                    return new RussianConversionFactory().GetConversionDictionaries();
-                case Language.Ukrainian:
-                    return new UkrainianConversionFactory().GetConversionDictionaries();
-                case Language.Bulgarian:
-                    return new BulgarianConversionFactory().GetConversionDictionaries();
-                case Language.Georgian:
-                    return new GeorgianConversionFactory().GetConversionDictionaries();
-                case Language.Greek:
-                    return new GreekConversionFactory().GetConversionDictionaries();
-                default:
-                    return null;
+                case Language.Serbian:   return new SerbianConversionFactory().GetConversionDictionaries();
+                case Language.Russian:   return new RussianConversionFactory().GetConversionDictionaries();
+                case Language.Ukrainian: return new UkrainianConversionFactory().GetConversionDictionaries();
+                case Language.Bulgarian: return new BulgarianConversionFactory().GetConversionDictionaries();
+                case Language.Georgian:  return new GeorgianConversionFactory().GetConversionDictionaries();
+                case Language.Greek:     return new GreekConversionFactory().GetConversionDictionaries();
+                case Language.Belarusian:return new BelarusianConversionFactory().GetConversionDictionaries();
+                default: return null;
             }
         }
         #endregion Factory
@@ -36,37 +32,37 @@ namespace Cyrillic.Convert
         private string ConvertCyrillicToLatin(Language language, string text)
         {
             var letters = GetConcreteProduct(language);
+            if (string.IsNullOrEmpty(text) || letters == null) return text;
 
-            StringBuilder builder = new StringBuilder(text.Length * 2); //approximately
-
-            var special_dict = letters.GetSpecialDictionary();
-
-            foreach (var pair in special_dict)
+            if (language == Language.Belarusian)
             {
-                text = text.Replace(pair.Key, pair.Value);
+                text = text.Replace("СЬ", "__SOFT_S__").Replace("сь", "__soft_s__");
+            }
+
+            var specialPairs = letters.GetSpecialDictionary();
+            if (specialPairs.Count > 0)
+            {
+                foreach (var pair in specialPairs.OrderByDescending(p => p.Key.Length))
+                    text = text.Replace(pair.Key, pair.Value);
             }
 
             var start_dict = letters.GetStartDictionary();
-
-            var c = text[0];
-            bool empty_prev = false;
-
             var dict = letters.GetToLatinDictionary();
-
-            int length = text.Length;
-
-            for (int i = 0; i < length; ++i)
+            StringBuilder builder = new StringBuilder(text.Length * 2);
+            bool empty_prev = true; // treat beginning as start-of-word
+            for (int i = 0; i < text.Length; ++i)
             {
-                c = text[i];
-                if (empty_prev && start_dict.TryGetValue(c, out string start_tmp_str))
+                char c = text[i];
+                if ((empty_prev) && start_dict.TryGetValue(c, out string start_tmp_str))
                 {
-                    empty_prev = false;
                     builder.Append(start_tmp_str);
-                }
-                else if (dict.TryGetValue(c, out string rep))
-                {
                     empty_prev = false;
+                    continue;
+                }
+                if (dict.TryGetValue(c, out string rep))
+                {
                     builder.Append(rep);
+                    empty_prev = false;
                 }
                 else
                 {
@@ -74,23 +70,29 @@ namespace Cyrillic.Convert
                     empty_prev = is_empty(c);
                 }
             }
-
-            return builder.ToString();
+            var result = builder.ToString();
+            if (language == Language.Belarusian)
+            {
+                result = result.Replace("__SOFT_S__", "Ś").Replace("__soft_s__", "ś");
+            }
+            return result.Normalize(NormalizationForm.FormC);
         }
 
         private string ConvertLatinToCyrillic(Language language, string text)
         {
             var letters = GetConcreteProduct(language);
-            var empties = empty_chars();
+            if (string.IsNullOrEmpty(text) || letters == null) return text;
 
-            foreach (var pair in letters.GetSpecialDictionary())
+            var specialPairs = letters.GetSpecialDictionary();
+            if (specialPairs.Count > 0)
             {
-                text = text.Replace(pair.Value, pair.Key);
+                foreach (var pair in specialPairs.OrderByDescending(p => p.Value.Length))
+                    text = text.Replace(pair.Value, pair.Key);
             }
 
             var start_dict = letters.GetStartToCyrillicDictionary();
+            var empties = empty_chars();
 
-            //first replace start characters
             int previous_empty_index = -1;
             do
             {
@@ -100,10 +102,9 @@ namespace Cyrillic.Convert
                 {
                     char c = text[i];
                     if (is_empty(c)) continue;
-
                     foreach (var pr in start_dict)
                     {
-                        if (pr.Key.Length > text.Length - i) continue;
+                        if (pr.Key.Length > length - i) continue;
                         if (text.IndexOf(pr.Key, i, pr.Key.Length) != i) continue;
                         text = text.Substring(0, i) + pr.Value + text.Substring(i + pr.Key.Length);
                         break;
@@ -111,108 +112,63 @@ namespace Cyrillic.Convert
                     break;
                 }
                 previous_empty_index = i;
-
                 previous_empty_index = text.IndexOfAny(empties, previous_empty_index);
             } while (previous_empty_index != -1);
 
-
-
-            foreach (KeyValuePair<string, string> pair in letters.GetToCyrillicDictionary())
+            var toCyr = letters.GetToCyrillicDictionary();
+            if (toCyr.Count > 0)
             {
-                text = text.Replace(pair.Key, pair.Value);
-                // For upper case
-                text = text.Replace(pair.Key.ToUpper(), pair.Value.ToUpper());
+                foreach (var pair in toCyr.OrderByDescending(p => p.Key.Length))
+                {
+                    text = text.Replace(pair.Key, pair.Value);
+                    if (pair.Key.Length == 1)
+                    {
+                        var upperKey = pair.Key.ToUpper();
+                        if (upperKey != pair.Key)
+                            text = text.Replace(upperKey, pair.Value.ToUpper());
+                    }
+                }
             }
-
-            return text;
+            return text.Normalize(NormalizationForm.FormC);
         }
         #endregion Conversion
 
-        #region "Serbian"
-        public string SerbianCyrillicToLatin(string text)
-        {
-            return ConvertCyrillicToLatin(Language.Serbian, text);
-        }
+        #region Serbian
+        public string SerbianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Serbian, text);
+        public string SerbianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Serbian, text);
+        #endregion Serbian
 
-        public string SerbianLatinToCyrillic(string text)
-        {
-            return ConvertLatinToCyrillic(Language.Serbian, text);
-        }
-        #endregion "Serbian"
+        #region Russian
+        public string RussianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Russian, text);
+        public string RussianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Russian, text);
+        #endregion Russian
 
-        #region "Russian"
-        public string RussianCyrillicToLatin(string text)
-        {
-            return ConvertCyrillicToLatin(Language.Russian, text);
-        }
-
-        public string RussianLatinToCyrillic(string text)
-        {
-            return ConvertLatinToCyrillic(Language.Russian, text);
-        }
-        #endregion "Russian"
-
-        #region "Bulgarian"
-        public string BulgarianCyrillicToLatin(string text)
-        {
-            return ConvertCyrillicToLatin(Language.Bulgarian, text);
-        }
-
-        public string BulgarianLatinToCyrillic(string text)
-        {
-            return ConvertLatinToCyrillic(Language.Bulgarian, text);
-        }
-        #endregion "Bulgarian"
+        #region Bulgarian
+        public string BulgarianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Bulgarian, text);
+        public string BulgarianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Bulgarian, text);
+        #endregion Bulgarian
 
         #region Ukrainian
-
-        public string UkrainianCyrillicToLatin(string text)
-        {
-            return ConvertCyrillicToLatin(Language.Ukrainian, text);
-        }
-
-        public string UkrainianLatinToCyrillic(string text)
-        {
-            return ConvertLatinToCyrillic(Language.Ukrainian, text);
-        }
-
-        private bool is_empty(char c)
-        {
-            return c == ' '
-                        || c == '\t'
-                        || c == '\n'
-                        || c == '\r';
-        }
-
-        private char[] empty_chars()
-        {
-            return new char[] { ' ', '\t', '\n', '\r' };
-        }
-
-        #endregion
+        public string UkrainianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Ukrainian, text);
+        public string UkrainianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Ukrainian, text);
+        #endregion Ukrainian
 
         #region Georgian
-        public string GeorgianCyrillicToLatin(string text)
-        {
-            return ConvertCyrillicToLatin(Language.Georgian, text);
-        }
-
-        public string GeorgianLatinToCyrillic(string text)
-        {
-            return ConvertLatinToCyrillic(Language.Georgian, text);
-        }
+        public string GeorgianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Georgian, text);
+        public string GeorgianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Georgian, text);
         #endregion Georgian
 
         #region Greek
-        public string GreekCyrillicToLatin(string text)
-        {
-            return ConvertCyrillicToLatin(Language.Greek, text);
-        }
-
-        public string GreekLatinToCyrillic(string text)
-        {
-            return ConvertLatinToCyrillic(Language.Greek, text);
-        }
+        public string GreekCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Greek, text);
+        public string GreekLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Greek, text);
         #endregion Greek
+
+        #region Belarusian
+        public string BelarusianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Belarusian, text);
+        public string BelarusianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Belarusian, text);
+        #endregion Belarusian
+
+        private bool is_empty(char c) => c == ' ' || c == '\t' || c == '\n' || c == '\r';
+        private char[] empty_chars() => new[] { ' ', '\t', '\n', '\r' };
     }
 }

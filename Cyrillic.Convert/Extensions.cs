@@ -87,5 +87,19 @@
             return conversion.GreekCyrillicToLatin(text);
         }
         #endregion Greek
+
+        #region Belarusian
+        public static string ToBelarusianCyrillic(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.BelarusianLatinToCyrillic(text);
+        }
+
+        public static string ToBelarusianLatin(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.BelarusianCyrillicToLatin(text);
+        }
+        #endregion Belarusian
     }
 }
