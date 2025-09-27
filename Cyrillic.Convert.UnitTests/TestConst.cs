@@ -8,10 +8,10 @@
         public static string RussianCyrillicLetters = "а,б,в,г,д,е,ё,ж,з,и,й,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ы,ю,я,А,Б,В,Г,Д,Е,Ё,Ж,З,И,Й,К,Л,М,Н,О,П,Р,С,Т,У,Ф,Х,Ц,Ч,Ш,Щ,Ы,Ю,Я"; //special case Э => E, э => e, ъ => '', ь => '', Ъ => '', Ь => ''
         public static string RussianLatinLetters = "a,b,v,g,d,e,yo,zh,z,i,j,k,l,m,n,o,p,r,s,t,u,f,kh,ts,ch,sh,shch,y,ju,ja,A,B,V,G,D,E,Yo,Zh,Z,I,J,K,L,M,N,O,P,R,S,T,U,F,Kh,Ts,Ch,Sh,Shch,Y,Ju,Ja"; //special case sch => щ, shch => щ
 
-        public static string BulgarianCyrillicLetters = "а,б,в,г,д,е,ж,з,и,й,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ы,ю,я,ъ,А,Б,В,Г,Д,Е,Ж,З,И,Й,К,Л,М,Н,О,П,Р,С,Т,У,Ф,Х,Ц,Ч,Ш,Щ,Ы,Ю,Я,Ъ"; //special case Э => E, э => e, ъ => '', ь => '', Ъ => '', Ь => ''
+        public static string BulgarianCyrillicLetters = "а,б,в,г,д,е,ж,з,и,й,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ы,ю,я,ъ,А,Б,В,Г,Д,Е,Ж,З,И,Й,К,Л,М,Н,О,П,Р,С,Т,У,Ф,Х,Ц,Ч,Ш,Щ,Ы,Ю,Я,Ъ"; //special case Э => E, э => e, ъ => '', ь => '', Ь => '', Ъ => ''
         public static string BulgarianLatinLetters = "a,b,v,g,d,e,zh,z,i,j,k,l,m,n,o,p,r,s,t,u,f,kh,ts,ch,sh,sht,y,yu,ya,ǎ,A,B,V,G,D,E,Zh,Z,I,J,K,L,M,N,O,P,R,S,T,U,F,Kh,Ts,Ch,Sh,Sht,Y,Yu,Ya,Ǎ"; //special case sch => щ, shch => щ
 
-        public static string UkrainianCyrillicLetters = "а,б,в,г,ґ,д,е,є,ж,з,и,і,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ю,я,А,Б,В,Г,Ґ,Д,Е,Є,Ж,З,И,І,К,Л,М,Н,О,П,Р,С,Т,У,Ф,Х,Ц,Ч,Ш,Щ,Ю,Я,зг,Зг,ЗГ,зГ"; //special case: ї,й,Ї,Й,ь
+        public static string UkrainianCyrillicLetters = "а,б,в,г,ґ,д,е,є,ж,з,и,і,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ю,я,А,Բ,В,Г,Ґ,Д,Е,Є,Ж,З,И,І,Կ,Լ,Մ,Ն,О,Պ,Р,С,Т,У,Ֆ,Х,Ц,Ч,Ш,Щ,Ю,Я,зг,Зг,ЗГ,зГ"; //special case: ї,й,Ї,Й,ь
         public static string UkrainianLatinLetters = "a,b,v,h,g,d,e,ie,zh,z,y,i,k,l,m,n,o,p,r,s,t,u,f,kh,ts,ch,sh,shch,iu,ia,A,B,V,H,G,D,E,IE,Zh,Z,Y,I,K,L,M,N,O,P,R,S,T,U,F,Kh,Ts,Ch,Sh,Shch,IU,IA,zgh,Zgh,ZGH,zGH"; //special case: \,Zh,Ts,Ch,Sh,Ie,Iu,Ia , KH,TS,CH,SH,SHCH,
 
         public static string GeorgianCyrillicLetters = "ჭ,Ჭ,თ,Თ,ჟ,Ჟ,ფ,Ფ,ღ,Ღ,ყ,Ყ,შ,Შ,ჩ,Ჩ,ც,Ც,ძ,Ძ,ხ,Ხ,ა,Ა,ბ,Ბ,გ,Გ,დ,Დ,ე,Ე,ვ,Ვ,ზ,Ზ,ი,Ი,კ,Კ,ლ,Ლ,მ,Მ,ნ,Ნ,ო,Ო,პ,Პ,რ,Რ,ს,Ს,ტ,Ტ,უ,Უ,ქ,Ქ,ჯ,Ჯ,ჰ,Ჰ"; // special case: წ => ts, Წ => Ts
@@ -21,5 +21,13 @@
         public static string GreekCyrillicLetters = "Χ,χ,Ψ,ψ,Α,α,Β,β,Γ,γ,Δ,δ,Ε,ε,Ζ,ζ,Η,η,Θ,θ,Ι,ι,Κ,κ,Λ,λ,Μ,μ,Ν,ν,Ξ,ξ,Ο,ο,Π,π,Ρ,ρ,Σ,σ,ς,Τ,τ,Υ,υ,Φ,φ,Ω,ω";
         public static string GreekLatinLetters = "Ch,ch,Ps,ps,A,a,V,v,G,g,D,d,E,e,Z,z,I,i,T,t,I,i,K,k,L,l,M,m,N,n,X,x,O,o,P,p,R,r,S,s,s,T,t,Y,y,F,f,O,o";
         public static string GreekLatinToGreekExpected = "Χ,χ,Ψ,ψ,Α,α,Β,β,Γ,γ,Δ,δ,Ε,ε,Ζ,ζ,Ι,ι,Τ,τ,Ι,ι,Κ,κ,Λ,λ,Μ,μ,Ν,ν,Ξ,ξ,Ο,ο,Π,π,Ρ,ρ,Σ,σ,σ,Τ,τ,Υ,υ,Φ,φ,Ο,ο";
+
+        // Simplified Armenian
+        public static string ArmenianCyrillicLetters = "Ա,Բ,Գ,Դ,Ե,Զ,Է,Ը,Թ,Ժ,Ի,Լ,Խ,Ծ,Կ,Հ,Ձ,Ղ,Ճ,Մ,Յ,Ն,Շ,Ո,Չ,Պ,Ջ,Ռ,Ս,Վ,Տ,Ր,Ց,Ւ,Փ,Ք,Օ,Ֆ,ա,բ,գ,դ,ե,զ,է,ը,թ,ժ,ի,լ,խ,ծ,կ,հ,ձ,ղ,ճ,մ,յ,ն,շ,ո,չ,պ,ջ,ռ,ս,վ,տ,ր,ց,ւ,փ,ք,օ,ֆ";
+        public static string ArmenianLatinLetters = "A,B,G,D,Ye,Z,E,Eh,Th,Zh,I,L,X,Ts,K,H,Dz,Gh,Tch,M,Y,N,Sh,Vo,Ch,P,J,R,S,V,T,Rr,C,Yw,Ph,Kh,O,F,a,b,g,d,ye,z,e,eh,th,zh,i,l,x,ts,k,h,dz,gh,tch,m,y,n,sh,vo,ch,p,j,r,s,v,t,rr,c,yw,ph,kh,o,f";
+
+        // Belarusian using explicit Unicode escapes to avoid encoding issues
+        public static string BelarusianCyrillicLetters = "\u0414\u0416,\u0434\u0436,\u0414\u0417,\u0434\u0437,\u0421\u042C,\u0441\u044C,\u0410,\u0430,\u0411,\u0431,\u0412,\u0432,\u0413,\u0433,\u0414,\u0434,\u0416,\u0436,\u0417,\u0437,\u0406,\u0456,\u0419,\u0439,\u041A,\u043A,\u041B,\u043B,\u041C,\u043C,\u041D,\u043D,\u041E,\u043E,\u041F,\u043F,\u0420,\u0440,\u0421,\u0441,\u0422,\u0442,\u0423,\u0443,\u040E,\u045E,\u0424,\u0444,\u0426,\u0446,\u0427,\u0447,\u0428,\u0448,\u042B,\u044B,\u042C,\u044C,\u042D,\u044D,\u0415,\u0435,\u0401,\u0451,\u042E,\u044E,\u042F,\u044F";
+        public static string BelarusianLatinLetters    = "D\u017E,d\u017E,Dz,dz,\u015A,\u015B,A,a,B,b,V,v,H,h,D,d,\u017D,\u017E,Z,z,I,i,J,j,K,k,L,l,M,m,N,n,O,o,P,p,R,r,S,s,T,t,U,u,\u01D3,\u01D4,F,f,C,c,\u010C,\u010D,\u0160,\u0161,Y,y,\u02C8,',E,e,Ie,ie,Io,io,Iu,iu,Ia,ia";
     }
 }

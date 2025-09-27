@@ -7,6 +7,7 @@
         Ukrainian,
         Bulgarian,
         Georgian,
-        Greek
+        Greek,
+        Belarusian
     }
 }
