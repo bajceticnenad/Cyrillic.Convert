@@ -10,6 +10,7 @@
         Greek,
         Belarusian,
         Macedonian,
-        Armenian
+        Armenian,
+        Kazakh
     }
 }
