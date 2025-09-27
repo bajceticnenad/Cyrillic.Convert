@@ -9,6 +9,7 @@
         Georgian,
         Greek,
         Belarusian,
-        Macedonian
+        Macedonian,
+        Armenian
     }
 }

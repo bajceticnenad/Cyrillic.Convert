@@ -14,10 +14,10 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
         {
             special = new Dictionary<string,string>
             {
-                { "\u0414\u0416", "D\u017E" }, // ?? -> Dž
-                { "\u0414\u0417", "Dz" },      // ??
+                { "\u0414\u0416", "D\u017D" }, // ?? -> DŽ
+                { "\u0414\u0417", "Dz" },      // ?? -> Dz
                 { "\u0434\u0436", "d\u017E" }, // ?? -> dž
-                { "\u0434\u0437", "dz" }       // ??
+                { "\u0434\u0437", "dz" }       // ?? -> dz
             };
 
             toLatin = new Dictionary<char,string>();
@@ -42,13 +42,13 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
             L('\u0421', "S");  L('\u0441', "s");
             L('\u0422', "T");  L('\u0442', "t");
             L('\u0423', "U");  L('\u0443', "u");
-            L('\u040E', "\u01D3"); L('\u045E', "\u01D4"); // ? ?
+            L('\u040E', "\u016C"); L('\u045E', "\u016D"); // ? -> ?, ? -> ?
             L('\u0424', "F");  L('\u0444', "f");
             L('\u0426', "C");  L('\u0446', "c");
             L('\u0427', "\u010C"); L('\u0447', "\u010D"); // ? ?
             L('\u0428', "\u0160"); L('\u0448', "\u0161"); // Š š
             L('\u042B', "Y");  L('\u044B', "y");
-            L('\u042C', "\u02C8");  L('\u044C', "'"); // ? -> ? (modifier letter vertical line), ? -> '
+            L('\u042C', "\u02C8");  L('\u044C', "'"); // ? -> ?, ? -> '
             L('\u042D', "E");  L('\u044D', "e");
 
             startLatin = new Dictionary<char,string>
@@ -69,17 +69,17 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 if (!toCyrillic.ContainsKey(kv.Value))
                     toCyrillic.Add(kv.Value, kv.Key.ToString());
 
-            // Explicit soft sign mappings (override any reverse from toLatin)
+            // Override soft sign mappings
             toCyrillic["\u02C8"] = "\u042C"; // ? -> ?
-            toCyrillic["'"] = "\u044C";     // ' -> ?
-            toCyrillic["\u2019"] = "\u042C"; // RIGHT SINGLE QUOTATION MARK as alias for uppercase soft sign
+            toCyrillic["'"] = "\u044C";       // ' -> ?
+            toCyrillic["\u2019"] = "\u042C"; // ’ -> ? (alias)
 
             // Affricates
-            toCyrillic["D\u017E"] = "\u0414\u0416"; toCyrillic["d\u017E"] = "\u0434\u0436";
-            toCyrillic["Dz"] = "\u0414\u0417";      toCyrillic["dz"] = "\u0434\u0437";
+            toCyrillic["D\u017D"] = "\u0414\u0416"; toCyrillic["d\u017E"] = "\u0434\u0436";
+            toCyrillic["Dz"] = "\u0414\u0417";       toCyrillic["dz"] = "\u0434\u0437";
             // Palatalized S
             toCyrillic["\u015A"] = "\u0421\u042C"; toCyrillic["\u015B"] = "\u0441\u044C";
-            // Vowel digraphs
+            // Vowel digraphs (start + non-start variants)
             toCyrillic["Je"] = "\u0415"; toCyrillic["je"] = "\u0435"; toCyrillic["Ie"] = "\u0415"; toCyrillic["ie"] = "\u0435";
             toCyrillic["Jo"] = "\u0401"; toCyrillic["jo"] = "\u0451"; toCyrillic["Io"] = "\u0401"; toCyrillic["io"] = "\u0451";
             toCyrillic["Ju"] = "\u042E"; toCyrillic["ju"] = "\u044E"; toCyrillic["Iu"] = "\u042E"; toCyrillic["iu"] = "\u044E";
@@ -91,8 +91,8 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 { "Jo", "\u0401" }, { "jo", "\u0451" },
                 { "Ju", "\u042E" }, { "ju", "\u044E" },
                 { "Ja", "\u042F" }, { "ja", "\u044F" },
-                { "\u02C8", "\u042C" }, // treat initial ? as uppercase soft sign (redundant but explicit)
-                { "\u2019", "\u042C" }  // treat initial ’ as uppercase soft sign
+                { "\u02C8", "\u042C" }, // ? at word start -> ?
+                { "\u2019", "\u042C" }  // ’ at word start -> ?
             };
         }
 
