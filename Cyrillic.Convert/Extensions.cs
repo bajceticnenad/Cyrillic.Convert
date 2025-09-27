@@ -101,5 +101,19 @@
             return conversion.BelarusianCyrillicToLatin(text);
         }
         #endregion Belarusian
+
+        #region Macedonian
+        public static string ToMacedonianCyrillic(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.MacedonianLatinToCyrillic(text);
+        }
+
+        public static string ToMacedonianLatin(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.MacedonianCyrillicToLatin(text);
+        }
+        #endregion Macedonian
     }
 }
