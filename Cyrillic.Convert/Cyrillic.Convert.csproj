@@ -4,49 +4,63 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Nenad Bajčetić</Authors>
     <Company>DotNET Code Čačak</Company>
-    <Description>Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic. 
-Supported languages: Serbian, Russian, Bulgarian, Ukrainian.
-Convert with forwarded string or as extension method.</Description>
+    <Description>Lightweight C# library for transliteration (Cyrillic ⇆ Latin). 
+Supported languages: Serbian, Russian, Bulgarian, Ukrainian, Georgian, Greek, Belarusian, Macedonian, Armenian, Kazakh.
+Use either direct Conversion methods or convenient string extension methods (e.g. ToSerbianLatin(), ToGreekCyrillic(), etc.).</Description>
     <Copyright>Nenad Bajčetić</Copyright>
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
-    <PackageReleaseNotes>v3.1
+    <PackageReleaseNotes>v3.2
+Add Greek, Belarusian, Macedonian, Armenian and Kazakh language support.
+Refined mappings and cleanup.
+
+v3.1
 BugFix for Serbian Language.
 Add Georgian Language.
+
 v3.0
 BugFix for Russian Language. 
 BugFix for Bulgarian Language.
 Add Factory pattern;
 Add XUnit Tests;
+
 v2.2.1
 Add MIT Licence
+
 v2.2.0
 Add conversion for Ukrainian language. 
+
 v2.1.2
 Add GitHub repository
+
 v2.1.1
 Add conversion for Bulgarian language. 
+
 v2.1.0
 Add conversion for Russian language.
+
 v2.0.3
 Add conversion for Russian language.
+
 v2.0.2
 Added Relases notes for all versions.
 Refactoring...
+
 v2.0.1
 Added Tags, Description...
+
 v2.0.0
 Added convert with extension method (ToSerbianLatin, ToSerbianCyrilic).
+
 v1.0.0
-Nuget (C# library) for convert Cyrillic to Latin and Latin to Cyrillic.
-Convert with forwarded string.
+Initial release: Cyrillic ⇆ Latin conversion for Serbian.
 
 If you have any questions, comments, or run into any problems, don't hesitate to send me an e-mail at
 nenadbajcetic@hotmail.com</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/bajceticnenad/Cyrillic.Convert</PackageProjectUrl>
-    <AssemblyVersion>3.0.1.0</AssemblyVersion>
-    <FileVersion>3.0.1.0</FileVersion>
-    <Version>3.1</Version>
-    <PackageTags>Convert, Cyrillic, Preslovljavanje, Translit, CyrillicToLatin, LatinToCyrillic, ToCyrillic, Serbian, Russian, Bulgarian, Ukrainian, Georgian</PackageTags>
+    <AssemblyVersion>3.2.0.0</AssemblyVersion>
+    <FileVersion>3.2.0.0</FileVersion>
+    <Version>3.2</Version>
+    <PackageTags>Convert,Cyrillic,Transliteration,Preslovljavanje,Translit,CyrillicToLatin,LatinToCyrillic,ToCyrillic,Serbian,Russian,Bulgarian,Ukrainian,Georgian,Greek,Belarusian,Macedonian,Armenian,Kazakh</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
