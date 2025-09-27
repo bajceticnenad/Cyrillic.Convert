@@ -23,6 +23,7 @@ namespace Cyrillic.Convert
                 case Language.Greek:     return new GreekConversionFactory().GetConversionDictionaries();
                 case Language.Belarusian:return new BelarusianConversionFactory().GetConversionDictionaries();
                 case Language.Macedonian:return new MacedonianConversionFactory().GetConversionDictionaries();
+                case Language.Armenian:  return new ArmenianConversionFactory().GetConversionDictionaries();
                 default: return null;
             }
         }
@@ -84,12 +85,6 @@ namespace Cyrillic.Convert
             var letters = GetConcreteProduct(language);
             if (string.IsNullOrEmpty(text) || letters == null) return text;
 
-            // For Macedonian we skip this early special-pair replacement because both
-            // uppercase and lowercase Ж map to the same Latin sequence "zh" (lowercase).
-            // Replacing "zh" here (before digraph-aware processing) caused "Zhzh" to become
-            // "ZhЖ" and then later "Zh" -> "Ж" resulting in "ЖЖ" instead of expected "Жж".
-            // The explicit digraph mappings in the toCyrillic dictionary already handle
-            // both "Zh" -> Ж and "zh" -> ж correctly.
             if (language != Language.Macedonian)
             {
                 var specialPairs = letters.GetSpecialDictionary();
@@ -182,6 +177,11 @@ namespace Cyrillic.Convert
         public string MacedonianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Macedonian, text);
         public string MacedonianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Macedonian, text);
         #endregion Macedonian
+
+        #region Armenian
+        public string ArmenianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Armenian, text);
+        public string ArmenianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Armenian, text);
+        #endregion Armenian
 
         private bool is_empty(char c) => c == ' ' || c == '\t' || c == '\n' || c == '\r';
         private char[] empty_chars() => new[] { ' ', '\t', '\n', '\r' };

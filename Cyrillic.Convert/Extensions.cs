@@ -115,5 +115,19 @@
             return conversion.MacedonianCyrillicToLatin(text);
         }
         #endregion Macedonian
+
+        #region Armenian
+        public static string ToArmenianCyrilic(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.ArmenianLatinToCyrillic(text);
+        }
+
+        public static string ToArmenianLatin(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.ArmenianCyrillicToLatin(text);
+        }
+        #endregion Armenian
     }
 }
