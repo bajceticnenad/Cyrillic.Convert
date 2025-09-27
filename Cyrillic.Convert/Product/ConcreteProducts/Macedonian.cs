@@ -22,7 +22,7 @@ namespace Cyrillic.Convert.Product.ConcreteProducts
                 {"\u040C", "Kj"}, {"\u045C", "kj"}, // ? ?
                 {"\u040F", "Dj"}, {"\u045F", "dj"}, // ? ?
                 {"\u0427", "Ch"}, {"\u0447", "ch"}, // ? ?
-                {"\u0416", "zh"}, {"\u0436", "zh"}, // ? ? (both map to lower zh per provided PHP map)
+                {"\u0416", "zh"}, {"\u0436", "zh"}, // ? ? (both map to lower zh)
                 {"\u0428", "Sh"}, {"\u0448", "sh"}  // ? ?
             };
 

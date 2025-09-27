@@ -29,5 +29,9 @@
         // Simplified Armenian
         public static string ArmenianCyrillicLetters = "Ա,Բ,Գ,Դ,Ե,Զ,Է,Ը,Թ,Ժ,Ի,Լ,Խ,Ծ,Կ,Հ,Ձ,Ղ,Ճ,Մ,Յ,Ն,Շ,Ո,Չ,Պ,Ջ,Ռ,Ս,Վ,Տ,Ր,Ց,Ւ,Փ,Ք,Օ,Ֆ,ա,բ,գ,դ,ե,զ,է,ը,թ,ժ,ի,լ,խ,ծ,կ,հ,ձ,ղ,ճ,մ,յ,ն,շ,ո,չ,պ,ջ,ռ,ս,վ,տ,ր,ց,ւ,փ,ք,օ,ֆ";
         public static string ArmenianLatinLetters = "A,B,G,D,Ye,Z,E,Eh,Th,Zh,I,L,X,Ts,K,H,Dz,Gh,Tch,M,Y,N,Sh,Vo,Ch,P,J,R,S,V,T,Rr,C,Yw,Ph,Kh,O,F,a,b,g,d,ye,z,e,eh,th,zh,i,l,x,ts,k,h,dz,gh,tch,m,y,n,sh,vo,ch,p,j,r,s,v,t,rr,c,yw,ph,kh,o,f";
+
+        // Kazakh test constants (Cyrillic -> Latin order matching mapping above without separators for digraph precedence)
+        public static string KazakhCyrillicLetters = "Ғ,ғ,Ё,ё,Ж,ж,Ң,ң,Х,х,Ц,ц,Ч,ч,Ш,ш,Щ,щ,Ю,ю,Я,я,А,а,Б,б,В,в,Г,г,Д,д,Е,е,З,з,И,и,Й,й,К,к,Л,л,М,м,Н,н,О,о,П,п,Р,р,С,с,Т,т,У,у,Ф,ф,Ү,ү,Һ,һ,Э,э,Ұ,ұ,Ө,ө,Қ,қ,І,і"; //special case ,Ъ,ъ,Ь,ь  => ''
+        public static string KazakhLatinLetters = "Gh,gh,Yo,yo,Zh,zh,Ng,ng,Kh,kh,Ts,ts,Ch,ch,Sh,sh,Shch,shch,Yu,yu,Ya,ya,A,a,B,b,V,v,G,g,D,d,E,e,Z,z,Ī,ī,Y,y,K,k,L,l,M,m,N,n,O,o,P,p,R,r,S,s,T,t,Ū,ū,F,f,Ü,ü,H,h,Ė,ė,U,u,Ö,ö,Q,q,I,i";
     }
 }

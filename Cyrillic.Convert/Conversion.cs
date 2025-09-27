@@ -24,6 +24,7 @@ namespace Cyrillic.Convert
                 case Language.Belarusian:return new BelarusianConversionFactory().GetConversionDictionaries();
                 case Language.Macedonian:return new MacedonianConversionFactory().GetConversionDictionaries();
                 case Language.Armenian:  return new ArmenianConversionFactory().GetConversionDictionaries();
+                case Language.Kazakh:    return new KazakhConversionFactory().GetConversionDictionaries();
                 default: return null;
             }
         }
@@ -182,6 +183,11 @@ namespace Cyrillic.Convert
         public string ArmenianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Armenian, text);
         public string ArmenianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Armenian, text);
         #endregion Armenian
+
+        #region Kazakh
+        public string KazakhCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Kazakh, text);
+        public string KazakhLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Kazakh, text);
+        #endregion Kazakh
 
         private bool is_empty(char c) => c == ' ' || c == '\t' || c == '\n' || c == '\r';
         private char[] empty_chars() => new[] { ' ', '\t', '\n', '\r' };

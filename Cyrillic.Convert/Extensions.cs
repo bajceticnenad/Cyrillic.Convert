@@ -129,5 +129,18 @@
             return conversion.ArmenianCyrillicToLatin(text);
         }
         #endregion Armenian
+
+        #region Kazakh
+        public static string ToKazakhLatin(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.KazakhCyrillicToLatin(text);
+        }
+        public static string ToKazakhCyrillic(this string text)
+        {
+            var conversion = new Conversion();
+            return conversion.KazakhLatinToCyrillic(text);
+        }
+        #endregion Kazakh
     }
 }
