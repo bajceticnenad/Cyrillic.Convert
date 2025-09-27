@@ -22,6 +22,7 @@ namespace Cyrillic.Convert
                 case Language.Georgian:  return new GeorgianConversionFactory().GetConversionDictionaries();
                 case Language.Greek:     return new GreekConversionFactory().GetConversionDictionaries();
                 case Language.Belarusian:return new BelarusianConversionFactory().GetConversionDictionaries();
+                case Language.Macedonian:return new MacedonianConversionFactory().GetConversionDictionaries();
                 default: return null;
             }
         }
@@ -83,11 +84,20 @@ namespace Cyrillic.Convert
             var letters = GetConcreteProduct(language);
             if (string.IsNullOrEmpty(text) || letters == null) return text;
 
-            var specialPairs = letters.GetSpecialDictionary();
-            if (specialPairs.Count > 0)
+            // For Macedonian we skip this early special-pair replacement because both
+            // uppercase and lowercase Ж map to the same Latin sequence "zh" (lowercase).
+            // Replacing "zh" here (before digraph-aware processing) caused "Zhzh" to become
+            // "ZhЖ" and then later "Zh" -> "Ж" resulting in "ЖЖ" instead of expected "Жж".
+            // The explicit digraph mappings in the toCyrillic dictionary already handle
+            // both "Zh" -> Ж and "zh" -> ж correctly.
+            if (language != Language.Macedonian)
             {
-                foreach (var pair in specialPairs.OrderByDescending(p => p.Value.Length))
-                    text = text.Replace(pair.Value, pair.Key);
+                var specialPairs = letters.GetSpecialDictionary();
+                if (specialPairs.Count > 0)
+                {
+                    foreach (var pair in specialPairs.OrderByDescending(p => p.Value.Length))
+                        text = text.Replace(pair.Value, pair.Key);
+                }
             }
 
             var start_dict = letters.GetStartToCyrillicDictionary();
@@ -167,6 +177,11 @@ namespace Cyrillic.Convert
         public string BelarusianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Belarusian, text);
         public string BelarusianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Belarusian, text);
         #endregion Belarusian
+
+        #region Macedonian
+        public string MacedonianCyrillicToLatin(string text) => ConvertCyrillicToLatin(Language.Macedonian, text);
+        public string MacedonianLatinToCyrillic(string text) => ConvertLatinToCyrillic(Language.Macedonian, text);
+        #endregion Macedonian
 
         private bool is_empty(char c) => c == ' ' || c == '\t' || c == '\n' || c == '\r';
         private char[] empty_chars() => new[] { ' ', '\t', '\n', '\r' };

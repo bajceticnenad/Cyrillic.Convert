@@ -8,6 +8,7 @@
         Bulgarian,
         Georgian,
         Greek,
-        Belarusian
+        Belarusian,
+        Macedonian
     }
 }
