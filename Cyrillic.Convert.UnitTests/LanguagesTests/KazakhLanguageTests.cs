@@ -1,26 +1,39 @@
-using Xunit;
+using System.Text;
 
 namespace Cyrillic.Convert.UnitTests.LanguagesTests
 {
     public class KazakhLanguageTests
     {
+        private static string NC(string? s) => s!.Normalize(NormalizationForm.FormC);
+
         [Fact]
-        public void KazakhCyrillicToLatin_ShouldReturnIdentity()
+        public void KazakhCyrillicToLatin_ShouldReturnExpected()
         {
             var conversion = new Conversion();
-            var source = TestConst.KazakhCyrillicLetters.Replace(",", string.Empty);
-            var result = conversion.KazakhCyrillicToLatin(source);
-            Assert.Equal(source, result); // identity expectation
+            var latin = conversion.KazakhCyrillicToLatin(TestConst.KazakhCyrillicLetters);
+            Assert.Equal(NC(TestConst.KazakhLatinLetters), NC(latin));
         }
 
         [Fact]
-        public void KazakhLatinToCyrillic_ShouldReturnIdentity()
+        public void KazakhCyrillicToLatin_Extension_ShouldReturnExpected()
+        {
+            var latin = TestConst.KazakhCyrillicLetters.ToKazakhLatin();
+            Assert.Equal(NC(TestConst.KazakhLatinLetters), NC(latin));
+        }
+
+        [Fact]
+        public void KazakhLatinToCyrillic_ShouldReturnExpected()
         {
             var conversion = new Conversion();
-            var source = TestConst.KazakhCyrillicLetters.Replace(",", string.Empty);
-            // Using Cyrillic as 'Latin' input just to ensure no exception and identity
-            var result = conversion.KazakhLatinToCyrillic(source);
-            Assert.Equal(source, result); // identity expectation
+            var cyrillic = conversion.KazakhLatinToCyrillic(TestConst.KazakhLatinLetters);
+            Assert.Equal(NC(TestConst.KazakhCyrillicLetters), NC(cyrillic));
+        }
+
+        [Fact]
+        public void KazakhLatinToCyrillic_Extension_ShouldReturnExpected()
+        {
+            var cyrillic = TestConst.KazakhLatinLetters.ToKazakhCyrillic();
+            Assert.Equal(NC(TestConst.KazakhCyrillicLetters), NC(cyrillic));
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Cyrillic.Convert.UnitTests.LanguagesTests
         public void ConvertToBulgarianCyrillic_Extension_ShouldReturnCorrectLetters()
         {
             // Arrange & Act
-            var cyrillicExtension = TestConst.BulgarianLatinLetters.ToBulgarianCyrilic(); //Convert with extension method
+            var cyrillicExtension = TestConst.BulgarianLatinLetters.ToBulgarianCyrillic(); //Convert with extension method
 
             // Assert
             Assert.Equal(TestConst.BulgarianCyrillicLetters, cyrillicExtension);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Georgian : ConversionDictionaries
+    internal class Georgian : ConversionDictionaries
     {
         private readonly Dictionary<char, string> cyrillicToLatinDictionary;
         private readonly Dictionary<char, string> cyrillicStartDictionary;

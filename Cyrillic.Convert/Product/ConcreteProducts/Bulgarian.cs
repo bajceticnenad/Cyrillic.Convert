@@ -2,7 +2,7 @@
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Bulgarian : ConversionDictionaries
+    internal class Bulgarian : ConversionDictionaries
     {
         private readonly Dictionary<char, string> cyrillicToLatinDictionary;
         private readonly Dictionary<char, string> cyrillicStartDictionary;

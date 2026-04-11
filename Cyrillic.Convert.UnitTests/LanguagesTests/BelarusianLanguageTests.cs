@@ -5,7 +5,7 @@ namespace Cyrillic.Convert.UnitTests.LanguagesTests
 {
     public class BelarusianLanguageTests
     {
-        private static string NC(string s) => s.Normalize(NormalizationForm.FormC);
+        private static string NC(string? s) => s!.Normalize(NormalizationForm.FormC);
 
         [Fact]
         public void BelarusianCyrillicToLatin_ShouldReturnExpected()

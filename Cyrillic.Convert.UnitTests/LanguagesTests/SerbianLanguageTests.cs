@@ -19,7 +19,7 @@
         public void ConvertToSerbianCyrillic_Extension_ShouldReturnCorrectLetters()
         {
             // Arrange & Act
-            var cyrillicExtension = TestConst.SerbianLatinLetters.ToSerbianCyrilic(); //Convert with extension method
+            var cyrillicExtension = TestConst.SerbianLatinLetters.ToSerbianCyrillic(); //Convert with extension method
 
             // Assert
             Assert.Equal(TestConst.SerbianCyrillicLetters, cyrillicExtension);

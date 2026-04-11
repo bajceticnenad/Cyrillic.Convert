@@ -25,7 +25,7 @@ namespace Cyrillic.Convert.UnitTests.LanguagesTests
         public void ConvertToRussianCyrillic_Extension_ShouldReturnCorrectLetters()
         {
             // Arrange & Act
-            var cyrillicExtension = TestConst.RussianLatinLetters.ToRussianCyrilic(); //Convert with extension method
+            var cyrillicExtension = TestConst.RussianLatinLetters.ToRussianCyrillic(); //Convert with extension method
 
             // Assert
             Assert.Equal(TestConst.RussianCyrillicLetters, cyrillicExtension);
