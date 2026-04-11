@@ -2,64 +2,119 @@ using System.Collections.Generic;
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Kazakh : ConversionDictionaries
+    internal class Kazakh : ConversionDictionaries
     {
-        private readonly Dictionary<char,string> toLatin;
-        private readonly Dictionary<char,string> startLatin; // not used (no word-start variants in provided mapping)
-        private readonly Dictionary<string,string> special;   // none (all source units are single chars)
-        private readonly Dictionary<string,string> toCyrillic;
-        private readonly Dictionary<string,string> startToCyrillic; // not used
+        private readonly Dictionary<char, string> toLatin;
+        private readonly Dictionary<char, string> startLatin;
+        private readonly Dictionary<string, string> special;
+        private readonly Dictionary<string, string> toCyrillic;
+        private readonly Dictionary<string, string> startToCyrillic;
 
         public Kazakh()
         {
-            startLatin = new Dictionary<char,string>();
-            startToCyrillic = new Dictionary<string,string>();
-            special = new Dictionary<string,string>();
+            startLatin      = new Dictionary<char, string>();
+            startToCyrillic = new Dictionary<string, string>();
+            special         = new Dictionary<string, string>();
 
-            // Build Cyrillic -> Latin map
-            toLatin = new Dictionary<char,string>();
-            void L(char c, string v) => toLatin[c] = v; // helper
+            toLatin = new Dictionary<char, string>
+            {
+                // ── Digraphs and letters with multi-character Latin equivalents ──
+                { 'Ғ', "Gh"   }, { 'ғ', "gh"   },
+                { 'Ё', "Yo"   }, { 'ё', "yo"   },
+                { 'Ж', "Zh"   }, { 'ж', "zh"   },
+                { 'Ң', "Ng"   }, { 'ң', "ng"   },
+                { 'Х', "Kh"   }, { 'х', "kh"   },
+                { 'Ц', "Ts"   }, { 'ц', "ts"   },
+                { 'Ч', "Ch"   }, { 'ч', "ch"   },
+                { 'Ш', "Sh"   }, { 'ш', "sh"   },
+                { 'Щ', "Shch" }, { 'щ', "shch" },
+                { 'Ю', "Yu"   }, { 'ю', "yu"   },
+                { 'Я', "Ya"   }, { 'я', "ya"   },
 
-            // Variations and special characters
-            L('?', "Gh"); L('?', "gh"); L('?', "Yo"); L('?', "yo"); L('?', "Zh"); L('?', "zh");
-            L('?', "Ng"); L('?', "ng"); L('?', "Kh"); L('?', "kh"); L('?', "Ts"); L('?', "ts");
-            L('?', "Ch"); L('?', "ch"); L('?', "Sh"); L('?', "sh"); L('?', "Shch"); L('?', "shch");
-            L('?', "Yu"); L('?', "yu"); L('?', "Ya"); L('?', "ya");
+                // ── Standard letters ──
+                { 'А', "A"  }, { 'а', "a"  },
+                { 'Б', "B"  }, { 'б', "b"  },
+                { 'В', "V"  }, { 'в', "v"  },
+                { 'Г', "G"  }, { 'г', "g"  },
+                { 'Д', "D"  }, { 'д', "d"  },
+                { 'Е', "E"  }, { 'е', "e"  },
+                { 'З', "Z"  }, { 'з', "z"  },
 
-            // All other letters
-            L('?', "A"); L('?', "a"); L('?', "B"); L('?', "b"); L('?', "V"); L('?', "v");
-            L('?', "G"); L('?', "g"); L('?', "D"); L('?', "d"); L('?', "E"); L('?', "e");
-            L('?', "Z"); L('?', "z"); L('?', "?"); L('?', "?"); L('?', "Y"); L('?', "y");
-            L('?', "K"); L('?', "k"); L('?', "L"); L('?', "l"); L('?', "M"); L('?', "m");
-            L('?', "N"); L('?', "n"); L('?', "O"); L('?', "o"); L('?', "P"); L('?', "p");
-            L('?', "R"); L('?', "r"); L('?', "S"); L('?', "s"); L('?', "T"); L('?', "t");
-            L('?', "?"); L('?', "?"); L('?', "F"); L('?', "f"); L('?', "�"); L('?', "�");
-            L('?', "H"); L('?', "h"); L('?', "?"); L('?', "?"); L('?', "U"); L('?', "u");
-            L('?', "�"); L('?', "�"); L('?', "Q"); L('?', "q"); L('?', "I"); L('?', "i");
-            // Signs mapped to empty string (hard / soft) � data loss by design per original mapping
-            L('?', ""); L('?', ""); L('?', ""); L('?', "");
+                // И/и → Ī/ī  (I with macron, distinct from plain І/і)
+                { 'И', "Ī"  }, { 'и', "ī"  },
 
-            // Build Latin -> Cyrillic reverse map (skip empty values like PHP array_filter)
-            toCyrillic = new Dictionary<string,string>();
+                { 'Й', "Y"  }, { 'й', "y"  },
+                { 'К', "K"  }, { 'к', "k"  },
+                { 'Л', "L"  }, { 'л', "l"  },
+                { 'М', "M"  }, { 'м', "m"  },
+                { 'Н', "N"  }, { 'н', "n"  },
+                { 'О', "O"  }, { 'о', "o"  },
+                { 'П', "P"  }, { 'п', "p"  },
+                { 'Р', "R"  }, { 'р', "r"  },
+                { 'С', "S"  }, { 'с', "s"  },
+                { 'Т', "T"  }, { 'т', "t"  },
+
+                // У/у → Ū/ū  (U with macron)
+                { 'У', "Ū"  }, { 'у', "ū"  },
+
+                { 'Ф', "F"  }, { 'ф', "f"  },
+
+                // Ү/ү → Ü/ü  (U with umlaut — Kazakh-specific)
+                { 'Ү', "Ü"  }, { 'ү', "ü"  },
+
+                // Һ/һ → H/h
+                { 'Һ', "H"  }, { 'һ', "h"  },
+
+                // Э/э → Ė/ė  (E with dot above — Kazakh-specific)
+                { 'Э', "Ė"  }, { 'э', "ė"  },
+
+                // Ұ/ұ → U/u  (distinct from У/у above)
+                { 'Ұ', "U"  }, { 'ұ', "u"  },
+
+                // Ө/ө → Ö/ö
+                { 'Ө', "Ö"  }, { 'ө', "ö"  },
+
+                // Қ/қ → Q/q
+                { 'Қ', "Q"  }, { 'қ', "q"  },
+
+                // І/і → I/i  (Ukrainian І, plain ASCII I)
+                { 'І', "I"  }, { 'і', "i"  },
+
+                // Hard/soft signs → empty string (data loss by design)
+                { 'Ъ', "" }, { 'ъ', "" },
+                { 'Ь', "" }, { 'ь', "" },
+            };
+
+            // ── Build Latin → Cyrillic reverse map from toLatin ──
+            toCyrillic = new Dictionary<string, string>();
             foreach (var kv in toLatin)
             {
-                if (string.IsNullOrEmpty(kv.Value)) continue; // skip empties
+                if (string.IsNullOrEmpty(kv.Value)) continue;
                 if (!toCyrillic.ContainsKey(kv.Value))
                     toCyrillic[kv.Value] = kv.Key.ToString();
             }
 
-            // Additional explicit tokens for uppercase multi-letter sequences & fallbacks
-            void R(string token, char cyr) { if (!toCyrillic.ContainsKey(token)) toCyrillic[token] = cyr.ToString(); }
-            R("SHCH", '?'); R("GH", '?'); R("YO", '?'); R("ZH", '?'); R("NG", '?'); R("KH", '?');
-            R("SH", '?'); R("YA", '?'); R("YU", '?'); R("CH", '?'); R("TS", '?');
-            
-            R("J", '?'); R("j", '?'); R("I", '?'); R("i", '?');
+            // ── Supplemental all-uppercase multi-letter tokens ──
+            void R(string token, char cyr)
+            {
+                if (!toCyrillic.ContainsKey(token))
+                    toCyrillic[token] = cyr.ToString();
+            }
+
+            R("SHCH", 'Щ');
+            R("GH",   'Ғ'); R("YO", 'Ё'); R("ZH", 'Ж');
+            R("NG",   'Ң'); R("KH", 'Х'); R("TS", 'Ц');
+            R("CH",   'Ч'); R("SH", 'Ш'); R("YU", 'Ю');
+            R("YA",   'Я');
+
+            // J/j as aliases for Й/й
+            R("J", 'Й'); R("j", 'й');
         }
 
-        public override Dictionary<char,string> GetToLatinDictionary() => toLatin;
-        public override Dictionary<char,string> GetStartDictionary() => startLatin;
-        public override Dictionary<string,string> GetStartToCyrillicDictionary() => startToCyrillic;
-        public override Dictionary<string,string> GetToCyrillicDictionary() => toCyrillic;
-        public override Dictionary<string,string> GetSpecialDictionary() => special;
+        public override Dictionary<char, string>   GetToLatinDictionary()          => toLatin;
+        public override Dictionary<char, string>   GetStartDictionary()            => startLatin;
+        public override Dictionary<string, string> GetStartToCyrillicDictionary()  => startToCyrillic;
+        public override Dictionary<string, string> GetToCyrillicDictionary()       => toCyrillic;
+        public override Dictionary<string, string> GetSpecialDictionary()          => special;
     }
 }

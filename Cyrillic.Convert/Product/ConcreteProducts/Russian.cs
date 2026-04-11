@@ -2,7 +2,7 @@
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Russian : ConversionDictionaries
+    internal class Russian : ConversionDictionaries
     {
         private readonly Dictionary<char, string> cyrillicToLatinDictionary;
         private readonly Dictionary<char, string> cyrillicStartDictionary;

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Armenian : ConversionDictionaries
+    internal class Armenian : ConversionDictionaries
     {
         private readonly Dictionary<char, string> toLatin;              // Armenian -> Latin
         private readonly Dictionary<char, string> startLatin;           // unused

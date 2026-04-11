@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Belarusian : ConversionDictionaries
+    internal class Belarusian : ConversionDictionaries
     {
         private readonly Dictionary<char,string> toLatin;              // Cyrillic char -> Latin
         private readonly Dictionary<char,string> startLatin;           // Start-of-word overrides

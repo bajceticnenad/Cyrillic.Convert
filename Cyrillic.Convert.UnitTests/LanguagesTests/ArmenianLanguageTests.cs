@@ -30,7 +30,7 @@ namespace Cyrillic.Convert.UnitTests.LanguagesTests
         [Fact]
         public void ConvertToArmenianCyrillic_Extension_ShouldReturnExpectedRoundTripLetters()
         {
-            var cyrExt = TestConst.ArmenianLatinLetters.ToArmenianCyrilic();
+            var cyrExt = TestConst.ArmenianLatinLetters.ToArmenianCyrillic();
             Assert.Equal(TestConst.ArmenianCyrillicLetters, cyrExt);
         }
     }

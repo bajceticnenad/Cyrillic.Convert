@@ -25,7 +25,7 @@ namespace Cyrillic.Convert.UnitTests.LanguagesTests
         public void ConvertToGeorgianCyrillic_Extension_ShouldReturnCorrectLetters()
         {
             // Arrange & Act
-            var cyrillicExtension = TestConst.GeorgianLatinLetters.ToGeorgianCyrilic(); //Convert with extension method
+            var cyrillicExtension = TestConst.GeorgianLatinLetters.ToGeorgianCyrillic(); //Convert with extension method
 
             // Assert
             Assert.Equal(TestConst.GeorgianCyrillicLetters, cyrillicExtension);

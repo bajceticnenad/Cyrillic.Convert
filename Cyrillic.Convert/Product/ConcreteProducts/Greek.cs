@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Cyrillic.Convert.Product.ConcreteProducts
 {
-    public class Greek : ConversionDictionaries
+    internal class Greek : ConversionDictionaries
     {
         private readonly Dictionary<char, string> cyrillicToLatinDictionary;
         private readonly Dictionary<char, string> cyrillicStartDictionary;

@@ -7,7 +7,7 @@ namespace Cyrillic.Convert.Product
     /// <summary>  
     /// ConversionDictionary - The 'Product' Abstract Class  
     /// </summary>  
-    public abstract class ConversionDictionaries
+    internal abstract class ConversionDictionaries
     {
         public abstract Dictionary<char, string> GetToLatinDictionary();
         public abstract Dictionary<char, string> GetStartDictionary();

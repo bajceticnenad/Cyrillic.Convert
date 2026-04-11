@@ -44,7 +44,7 @@ namespace Cyrillic.Convert.UnitTests.LanguagesTests
         public void ConvertToGreekCyrillic_Extension_ShouldReturnExpectedRoundTripLetters()
         {
             // Arrange & Act
-            var cyrillicExtension = TestConst.GreekLatinLetters.ToGreekCyrilic();
+            var cyrillicExtension = TestConst.GreekLatinLetters.ToGreekCyrillic();
 
             // Assert
             Assert.Equal(TestConst.GreekLatinToGreekExpected, cyrillicExtension);

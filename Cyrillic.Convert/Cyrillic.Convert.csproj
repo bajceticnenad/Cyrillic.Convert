@@ -1,35 +1,53 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
     <Authors>Nenad Bajčetić</Authors>
     <Company>DotNET Code Čačak</Company>
-    <Description>Lightweight C# library for transliteration (Cyrillic ⇆ Latin). 
+    <Description>Lightweight C# library for transliteration (Cyrillic ⇆ Latin).
 Supported languages: Serbian, Russian, Bulgarian, Ukrainian, Georgian, Greek, Belarusian, Macedonian, Armenian, Kazakh.
 Use either direct Conversion methods or convenient string extension methods (e.g. ToSerbianLatin(), ToGreekCyrillic(), etc.).</Description>
     <Copyright>Nenad Bajčetić</Copyright>
+
     <RepositoryUrl>https://github.com/bajceticnenad/Cyrillic.Convert</RepositoryUrl>
-    <PackageReleaseNotes>v3.2.1
-Include README in NuGet package.
-
-v3.2
-Add Greek, Belarusian, Macedonian, Armenian and Kazakh language support.
-Refined mappings and cleanup.
-
-(See earlier versions for historical notes.)</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/bajceticnenad/Cyrillic.Convert</PackageProjectUrl>
-    <AssemblyVersion>3.2.1.0</AssemblyVersion>
-    <FileVersion>3.2.1.0</FileVersion>
-    <Version>3.2.1</Version>
-    <PackageTags>Convert,Cyrillic,Transliteration,Preslovljavanje,Translit,CyrillicToLatin,LatinToCyrillic,ToCyrillic,Serbian,Russian,Bulgarian,Ukrainian,Georgian,Greek,Belarusian,Macedonian,Armenian,Kazakh</PackageTags>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Convert,Cyrillic,Transliteration,Preslovljavanje,Translit,CyrillicToLatin,LatinToCyrillic,ToCyrillic,Serbian,Russian,Bulgarian,Ukrainian,Georgian,Greek,Belarusian,Macedonian,Armenian,Kazakh</PackageTags>
+
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
+    <Version>4.0.0</Version>
+
+    <PackageReleaseNotes>v4.0.0
+BREAKING CHANGES:
+- ConversionDictionaries and all concrete language classes are now internal.
+- ToSerbianCyrilic / ToRussianCyrilic / ToBulgarianCyrilic / ToGeorgianCyrilic / ToGreekCyrilic / ToArmenianCyrilic are now [Obsolete]. Use the correctly-spelled ToCyrillic() variants instead.
+
+New features / fixes:
+- Fixed Kazakh.cs encoding corruption — Kazakh transliteration now works correctly.
+- Replaced the fragile Belarusian СЬ placeholder hack with safe Unicode PUA sentinels.
+- GetConcreteProduct now throws ArgumentOutOfRangeException for unknown Language values instead of returning silently.
+- Nullable reference types enabled; all public API now annotated with string?.
+- Shared static Conversion instance in Extensions — no per-call dictionary allocation.
+- Added GitHub Actions CI and automated NuGet publish pipelines.
+- Fixed snake_case naming (is_empty → IsWordBoundary, empty_chars → WordBoundaryChars, etc.).
+
+(See CHANGELOG.md for full history.)</PackageReleaseNotes>
+
+    <!-- Do not auto-pack on every build; packing is done by the CI publish workflow -->
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
+    <!-- Publish symbols so consumers can step into the library -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="/" />
-    <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 
 </Project>
