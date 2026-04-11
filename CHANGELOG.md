@@ -5,7 +5,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Version
 
 ---
 
-## [4.0.0] — Unreleased
+## [4.0.0] — 2026-04-12
 
 ### Breaking Changes
 - `ConversionDictionaries` and all concrete language classes (`Serbian`, `Russian`, etc.) are now `internal`. They were never intended as part of the public API.
